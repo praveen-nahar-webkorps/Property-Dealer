@@ -1,0 +1,33 @@
+<table class="table table-bordered table-striped border-info">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>About</th>
+                <th>Price</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Property Type</th>
+                <th>Landmark</th>
+                <th>View</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @rents.each do |r| %>
+                <tr>
+                    <td> <%= r.id%> </td>
+                    <td> <%= r.about %> </td>
+                    <td> <%= r.price%> </td>
+                    <td> <%= r.add%> </td>
+                    <td> <%= r.phone_no%> </td>
+                    <td> <%= r.property_type%> </td>
+                    <td> <%= r.landmark%> </td>
+                    <td> 
+
+
+                    <a href="/rents/<%= r.id %>" class="btn btn-primary btn-lg ">Show</a>
+                    
+                    </td>
+                </tr>   
+            <% end %>
+        </tbody>
+    </table>

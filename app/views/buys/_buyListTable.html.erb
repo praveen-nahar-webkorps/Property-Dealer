@@ -1,0 +1,33 @@
+<table class="table table-bordered table-striped border-info">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>About</th>
+                <th>Price</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Property Type</th>
+                <th>Landmark</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @buys.each do |b| %>
+                <tr>
+                    <td> <%= b.id%> </td>
+                    <td> <%= b.about %> </td>
+                    <td> <%= b.price%> </td>
+                    <td> <%= b.add%> </td>
+                    <td> <%= b.phone_no%> </td>
+                    <td> <%= b.property_type%> </td>
+                    <td> <%= b.landmark%> </td>
+                    <td> 
+
+
+                    <a href="/buys/<%= b.id %>" class="btn btn-primary btn-lg ">Show</a>
+                    
+                    </td>
+                </tr>   
+            <% end %>
+        </tbody>
+    </table>

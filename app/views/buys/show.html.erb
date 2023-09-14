@@ -1,0 +1,65 @@
+<div class="col-lg-12">
+    
+    <div class="card rounded-0 mt-5 mb-5">
+        <div class="card-body ">
+            <h1 class="text-center mb-5 me-5 bg-dark bg-gradient text-white"> Property Details </h1>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="ms-5 bg-info">Property Information</h3>
+                    <p class="lead ms-5"><strong>ID: </strong><%= @buy.id %></p>
+                    <p class="lead ms-5"><strong>About: </strong><%= @buy.about %></p>
+                    <p class="lead ms-5"><strong>Price: </strong><%= @buy.price.present? ? @buy.price : '--NA--' %></p>
+                    <p class="lead ms-5"><strong>Address: </strong><%= @buy.add %></p>                    
+                    <p class="lead ms-5"><strong>Phone Number: </strong><%= @buy.phone_no %></p>
+                    <p class="lead ms-5"><strong>Property Type: </strong><%= @buy.property_type %></p>
+                    <p class="lead ms-5"><strong>Landmark: </strong><%= @buy.landmark %></p>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="ms-5 bg-info">Address Information</h3>    
+                    <p class="lead ms-5"><strong>Address: </strong><%= @buy.add %></p>                    
+                    <p class="lead ms-5"><strong>Landmark: </strong><%= @buy.landmark %></p>               
+                </div>
+            </div>
+        </div>
+    </div> 
+
+
+    <%= link_to 'Edit Property',edit_buy_path, class: 'btn btn-primary btn-lg' %>
+
+    <%= link_to 'Back to Property',buys_path, class: 'btn btn-outline-primary btn-lg ' %>
+</div>
+
+
+
+<div class="col-lg-12">
+    <div class="card rounded-0 mt-5 mb-5">
+        <div class="card-body ">
+            <% if @buy.comments.present?%>
+                <div class="row">
+                    <h1 class="text-center mt-4 me-5 bg-dark bg-gradient text-white">Property Comments </h1> 
+
+                        <div class='col-lg-4'>
+                            <p class='lead ms-3'><h4>Content</h4></p>
+                        </div>
+                            
+                </div>
+                <% @buy.comments.each do |comment|%>
+                        
+                    <div class="card mb-4">
+                        <div class="card-body ">
+                            <div class="row">
+
+                                <div class='col-lg-4'>
+                                    <p class='lead'> <%= comment.content %> </p>
+                                </div>
+                                        
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+                    
+            <% end %>
+    </div>
+</div>
+
+</div>

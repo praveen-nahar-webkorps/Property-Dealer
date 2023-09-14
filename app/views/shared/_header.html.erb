@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark bg-gradient ">
+  <div class="container-fluid">
+    <a class="navbar-brand text-light" href="/homes">Property Deal</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="text-light nav-link active" aria-current="page" href="/homes">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="text-light nav-link" href="#">Features</a>
+        </li>
+      
+        <li class="nav-item dropdown">
+          <a class="text-light nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            BUY
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class=" dropdown-item" href="/buys/apartments">Apartment</a></li>
+            <li><a class=" dropdown-item" href="/buys/independents">Independent</a></li>
+            <li><a class=" dropdown-item" href="/buys">Both type of Property</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="text-light nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            RENT
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class=" dropdown-item" href="/rents/apartments">Apartment</a></li>
+            <li><a class=" dropdown-item" href="/rents/independents">Independent</a></li>
+            <li><a class=" dropdown-item" href="/rents">Both type of Property</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="text-light nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sell/Rent Property
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class=" dropdown-item" href="/buys/new">Sell Property</a></li>
+            <li><a class=" dropdown-item" href="/rents/new">Rent Property</a></li>
+            <li><a class=" dropdown-item" href="#">Something else here</a></li>
+          </ul>
+          
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <% if user_signed_in? %>
+              <%= button_to('Sign Out', destroy_user_session_path,
+                      method: "delete", remote: true, data: { confirm: 'Are you sure?', disable_with: 'loading...' }) %>
+              <p class="text-light"><strong><%= current_user.email%></strong></p>
+            <% else %>
+              <%= button_to 'sign in',new_user_session_path %>
+            <% end %>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>

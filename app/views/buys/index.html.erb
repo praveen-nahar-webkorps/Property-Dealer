@@ -1,0 +1,56 @@
+<div class="col-lg-12">
+
+    <div class="card rounded-0 mt-3 mb-4 bg-info text-white">
+        <div class="card-body bg-dark bg-gradient ">
+        <h1 class="text-center ">Listing All The Selling Property</h1>
+        </div>
+    </div>
+
+    <%= link_to "Create New Property", new_buy_path,class: "btn btn-primary btn-lg mb-4"%>
+
+    <table class="table table-bordered table-striped border-info">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>About</th>
+                <th>Price</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Property Type</th>
+                <th>Landmark</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @buys.each do |b| %>
+                <tr>
+                    <td> <%= b.id%> </td>
+                    <td> <%= b.about %> </td>
+                    <td> <%= b.price%> </td>
+                    <td> <%= b.add%> </td>
+                    <td> <%= b.phone_no%> </td>
+                    <td> <%= b.property_type%> </td>
+                    <td> <%= b.landmark%> </td>
+                    <td> 
+
+
+                        <!-- Example single danger button -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-outline-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Action
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><%= link_to "Edit", edit_buy_path(b), class: 'dropdown-item bg-outline-primary border' %></li>
+                                <li><a href="/buys/<%= b.id %>" class="dropdown-item bg-outline-info border">Show</a></li>
+                                <li><%= link_to "Delete", buy_path(b), class: "dropdown-item bg-outline-danger ",method: :delete, data: { confirm: 'Are you sure to delete this content ? '}%></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><%= link_to "Something else", nil,class: " dropdown-item bg-outline-danger"%></li>
+                            </ul>
+                        </div>
+                    
+                    </td>
+                </tr>   
+            <% end %>
+        </tbody>
+    </table>    
+</div>
