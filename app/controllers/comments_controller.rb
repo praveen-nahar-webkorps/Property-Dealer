@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    before_action :set_buy, only: [:edit,:update,:show,:destroy]
+    before_action :set_comment, only: [:edit,:update,:show,:destroy]
 
     # def index
     #     @comments = Buy.all
@@ -23,8 +23,8 @@ class CommentsController < ApplicationController
     end
 
     def update
-        if @buy.update(buy_params) 
-            redirect_to buys_path, notice: "Property has been updated succesfully"
+        if @comment.update(buy_params) 
+            redirect_to buys_path, notice: "Comment has been updated succesfully"
         else
             render :edit #we can also use in string format like (render 'edit')
         end 
@@ -34,29 +34,22 @@ class CommentsController < ApplicationController
     end
 
     def destroy
-        if @buy.destroy
+        if @comment.destroy
 			redirect_to buys_path, notice: "Property has been Deleted succesfully"
 		end
     end 
 
-    def all_apartments
-        @buys = Buy.where(property_type: "Apartment")
-    end
-
-    def all_independents
-        @buys = Buy.where(property_type: "Independent")
-    end
 
 
     private
 
     #callbacks
-    def set_buy   
+    def set_comment  
         @buy = Buy.find(params[:id])
     end
 
     #params
-    def buy_params
+    def comment_params
         params.require(:buy).permit(:about,:add,:price,:phone_no,:property_type,:landmark)
     end
 end
