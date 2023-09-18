@@ -54,10 +54,10 @@
 
         <div class="col-lg-4">
             <div class="form-group">
-                <%= form.label :property_type, class: 'mb-2 mt-4'%>
-                <%= form.text_field :property_type, class: 'form-control form-control-lg rounded-0'%>
+                <%= form.label :landmark, class: 'mb-2 mt-4'%>
+                <%= form.text_field :landmark, class: 'form-control form-control-lg rounded-0'%>
 
-               <% @rent.errors.full_messages_for(:property_type).each do |message| %>
+                <% @rent.errors.full_messages_for(:landmark).each do |message| %>
                     <p class="text-danger"><%= message %></p>  
                 <% end %>
 
@@ -66,10 +66,10 @@
 
         <div class="col-lg-4">
             <div class="form-group">
-                <%= form.label :landmark, class: 'mb-2 mt-4'%>
-                <%= form.text_field :landmark, class: 'form-control form-control-lg rounded-0'%>
+                <%= form.label :property_type, class: 'mb-2 mt-4'%><br>
+                <%= form.select :property_type, [["Apartment", "Apartment"], ["Independent", "Independent"]],class: 'form-select form-select-lg mb-3' %>
 
-                <% @rent.errors.full_messages_for(:landmark).each do |message| %>
+               <% @rent.errors.full_messages_for(:property_type).each do |message| %>
                     <p class="text-danger"><%= message %></p>  
                 <% end %>
 

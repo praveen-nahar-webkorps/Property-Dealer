@@ -51,19 +51,7 @@
 
             </div>
         </div>
-
-        <div class="col-lg-4">
-            <div class="form-group">
-                <%= form.label :property_type, class: 'mb-2 mt-4'%>
-                <%= form.text_field :property_type, class: 'form-control form-control-lg rounded-0'%>
-
-               <% @buy.errors.full_messages_for(:property_type).each do |message| %>
-                    <p class="text-danger"><%= message %></p>  
-                <% end %>
-
-            </div>
-        </div>
-
+        
         <div class="col-lg-4">
             <div class="form-group">
                 <%= form.label :landmark, class: 'mb-2 mt-4'%>
@@ -76,12 +64,25 @@
             </div>
         </div>
 
+        <div class="col-lg-4">
+            <div class="form-group">
+                <%= form.label :property_type, class: 'mb-2 mt-4'%><br>
+                <%= form.select :property_type, [["Apartment", "Apartment"], ["Independent", "Independent"]],class: 'form-select form-select-lg mb-3' %>
+
+               <% @buy.errors.full_messages_for(:property_type).each do |message| %>
+                    <p class="text-danger"><%= message %></p>  
+                <% end %>
+
+            </div>
+        </div>
+
+
     </div>
 
     <div class="row">
         <div class="col-lg-12 mt-4">
-            <%= form.submit class: 'btn btn-primary btn-lg rounded-0'%>
-            <%= link_to "Back to Buy", buys_path, class: "btn btn-outline-primary btn-lg rounded-0" %>
+            <%= form.submit 'Update Property', class: 'btn btn-primary btn-lg rounded-0'%>
+            <%= link_to "Back to Property", buys_path, class: "btn btn-outline-primary btn-lg rounded-0" %>
             </div>
     </div>
 

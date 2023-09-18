@@ -7,7 +7,7 @@ class BuysController < ApplicationController
 
     def create
         @buy = Buy.new(buy_params)
-
+        
         if @buy.save
             redirect_to buys_path, notice: "Property has been created succesfully"
         else
@@ -31,6 +31,7 @@ class BuysController < ApplicationController
     end
 
     def show
+       
     end
 
     def destroy

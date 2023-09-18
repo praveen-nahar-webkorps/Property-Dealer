@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root "homes#index"
   resources :homes
 
+
   get '/buys/apartments', to: 'buys#all_apartments'
   get '/buys/independents', to: 'buys#all_independents'
   resources :buys
@@ -18,5 +19,5 @@ Rails.application.routes.draw do
   get '/rents/independents', to: 'rents#all_independents'
   resources :rents
 
-   
+   resources :comments
 end
