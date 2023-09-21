@@ -39,8 +39,12 @@
                 <div class="row">
                     <h1 class="text-center mt-4 me-5 bg-dark bg-gradient text-white">Property Comments </h1> 
 
-                        <div class='col-lg-4'>
+                        <div class='col-lg-6'>
                             <p class='lead ms-3'><h4>Content</h4></p>
+                        </div>
+
+                        <div class='col-lg-4'>
+                            <p class='lead ms-3'><h4>ID</h4></p>
                         </div>
                             
                 </div>
@@ -50,10 +54,20 @@
                         <div class="card-body ">
                             <div class="row">
 
-                                <div class='col-lg-4'>
+                                <div class='col-lg-6'>
                                     <p class='lead'> <%= comment.content %> </p>
                                 </div>
-                                        
+
+                                <div class='col-lg-4'>
+                                    <p class='lead'> <%= comment.id %> </p>
+                                </div>
+                                
+                                <div class='col-lg-2'>
+                                <%= link_to 'Delete',comment_path(comment.id), method: :delete, class: 'btn btn-outline-primary btn-lg' %>
+                                <%= link_to 'edit',edit_comment_path(comment.id), class: 'btn btn-outline-primary btn-lg' %>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>

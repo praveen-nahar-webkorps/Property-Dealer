@@ -11,7 +11,7 @@ class BuysController < ApplicationController
         if @buy.save
             redirect_to buys_path, notice: "Property has been created succesfully"
         else
-            render :new
+            render :new 
         end
     end
 

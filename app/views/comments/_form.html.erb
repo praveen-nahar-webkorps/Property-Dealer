@@ -1,13 +1,20 @@
 <%= form_with(model: @comment, data: {turbo: false}) do |form|%>
     <div class="row">
 
-        <div class="col-lg-4">
+        <div class="col-lg-6">
             <div class="form-group">
                 <%= form.label :Content, class: 'mb-2'%>
-                <%= form.text_field :content, class: 'form-control form-control-lg rounded-0'%>
+                <%= form.text_area :content, class: 'form-control form-control-lg rounded-0'%>
                 <% @comment.errors.full_messages_for(:content).each do |message| %>
                     <p class="text-danger"><%= message %></p>  
                 <% end %> 
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="form-group">
+            <%= form.hidden_field :commentable_id, value: @buy.id %>
+            <%= form.hidden_field :commentable_type, value: "Buy" %>
             </div>
         </div>
         
@@ -16,7 +23,7 @@
     <div class="row">
         <div class="col-lg-12 mt-4">
             <%= form.submit class: 'btn btn-primary btn-lg rounded-0' %>
-            <%= link_to "Back to Comment", buys_path, class: "btn btn-outline-primary btn-lg rounded-0" %>
+            <%= link_to "Back to Property", buys_path, class: "btn btn-outline-primary btn-lg rounded-0" %>
         </div>
     </div>
 
